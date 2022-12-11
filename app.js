@@ -3,6 +3,7 @@ const axios = require('axios')
 require('dotenv').config()
 const app=express();
 app.set('view engine','ejs');
+const { body, validationResult } = require('express-validator');
 const sleep = require('util').promisify(setTimeout);
 //app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended:true}));
@@ -12,7 +13,7 @@ app.get('/',(req,res)=>{
 })
 
 
-app.post('/', (req,res,next)=>{
+app.post('/', body('image').not().isEmpty(),(req,res,next)=>{
     const config={
         headers:{
             'Ocp-Apim-Subscription-Key':process.env.apiKey,
@@ -113,6 +114,14 @@ app.get('/:id',  async (req,res,next)=>{
         // err.status=err.status;
         // err.message=err.message
         console.log("Error is"+JSON.stringify(err));
+        if(err.status==400)
+        {
+          err.message='This image file may not be supported due to incorrect media format or size, please try with new image';
+        }
+        // else if(err.status==404)
+        // {
+        //   err.message='This URL can not be located, please verify the id'
+        // }
         res.status(err.status);
         res.render('error',{error:err});
     })
