@@ -1,5 +1,5 @@
 <html>
-
+<body>
 <form method="POST" action="/">
  <label for="image">Enter image</label>   <input type="text" name="image" id="image">
  <button>Submit</button>
@@ -7,9 +7,9 @@
 <% if(opID) { %>
 
     <form method="GET" action="/<%=opID%>">
-        <button>GET image analysis</button>
+        <button>Extract text</button>
     </form>
 
 <%} %>
-
+</body>
 </html>
