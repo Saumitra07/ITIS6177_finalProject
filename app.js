@@ -5,12 +5,13 @@ const app=express();
 app.set('view engine','ejs');
 const { body, validationResult } = require('express-validator');
 const sleep = require('util').promisify(setTimeout);
-//app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
+
 app.get('/',(req,res)=>{
    res.render('index',{opID:null});
 })
+
 
 
 app.post('/', body('image').not().isEmpty(),(req,res,next)=>{
@@ -27,7 +28,6 @@ app.post('/', body('image').not().isEmpty(),(req,res,next)=>{
         const headers=JSON.stringify(res1.headers);
        // console.log(JSON.parse(headers)["operation-location"])
         const opID=JSON.parse(headers)["apim-request-id"]
-       // res.send(headers);
         res.render('index',{opID:opID})
 
     })

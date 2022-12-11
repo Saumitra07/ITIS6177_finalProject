@@ -1,15 +1,24 @@
-<html>
-<body>
-<form method="POST" action="/">
- <label for="image">Enter image</label>   <input type="text" name="image" id="image" required>
- <button>Submit</button>
-</form>
+<%- include('./partials/header.ejs') %>
+<main class="main_content">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+<form method="POST" action="/" class="mt-2">
+    <div class="form-group">
+        <label for="image">Enter image url</label>
+        <input type="text"  class="form-control mt-2" name="image" id="image" required>
+    </div>
+    <button type="submit" class="btn btn btn-dark mt-3">Submit</button>
+  </form>
 <% if(opID) { %>
-
-    <form method="GET" action="/<%=opID%>">
-        <button>Extract text</button>
-    </form>
+    <p class="mt-3"> Image uploaded succesfully</p>
+    <form method="GET" action="/<%=opID%>" class="mt-2">
+        <button type="submit" class="btn btn btn-dark mt-3">Extract Text</button>
+      </form>
 
 <%} %>
-</body>
-</html>
+</div>
+</div>
+</div>  
+</main>
+<%- include('./partials/footer.ejs') %>

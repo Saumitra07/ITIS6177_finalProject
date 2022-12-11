@@ -1,14 +1,20 @@
-<html>
+<%- include('./partials/header.ejs') %>
+<main class="main_content">
+    <div class="container">
 
-<body>
 <% if(lines) { %>
+
+    <h2 mb-3>Image contains below lines</h1>
 
     <% lines.forEach(line=>{ %>
 
-        <h2><%=line %></h2>
+        <h4><%=line %></h2>
 
         <%}) %>
 
 <%} %>
-</body>
-</html>
+
+    </div>
+    </main>
+
+<%- include('./partials/footer.ejs') %>

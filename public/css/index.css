@@ -1,0 +1,35 @@
+
+.wrapper
+{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body
+{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: white;
+
+}
+
+.main_content
+{
+    width: 80%;
+    margin: 5% auto;
+   flex: 1;
+
+}
+footer{
+    background-color:rgb(2, 18, 31)
+}
+.footer_nav
+{
+        width: 40%;
+        margin: 0 auto;
+        padding-top: 0.2%;
+        padding-bottom: 0.1%;
+        padding-left: 14%;
+}
