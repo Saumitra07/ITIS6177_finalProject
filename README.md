@@ -42,7 +42,7 @@ Below are the few example Image links which doesn’t work due to bad format/siz
 
 
 		 	
-How to run the application
+How to run the application locally
 
     1) Clone the repository https://github.com/Saumitra07/ITIS6177_finalProject.git
 
